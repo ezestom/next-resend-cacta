@@ -239,7 +239,7 @@ export const Form = () => {
          <div className="py-4 w-full flex">
             <button
                id="send"
-               className="bg-blue-500 text-white p-4 rounded hover:bg-blue-600 w-full border border-black/15 disabled:bg-gray-400 disabled:cursor-not-allowed"
+               className="bg-blue-500 text-black p-4 rounded hover:bg-blue-600 w-full border border-black/15 disabled:bg-gray-400 disabled:cursor-not-allowed"
                type="submit"
                disabled={loading}
             >
