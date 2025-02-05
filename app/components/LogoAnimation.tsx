@@ -9,11 +9,11 @@ const Logo: React.FC<LogoProps> = ({ className, disableAnimation }) => {
    return (
       <>
          <svg
-            className={`max-w-[6rem] max-h-[6rem] ${className}`}
+            className={`max-w-[6rem] max-h-[6rem] ${className} drop-shadow-sm`}
             xmlns="http://www.w3.org/2000/svg"
-            width="1500"
-            height="1500"
-            viewBox="0 0 1500 1500"
+            width="1600"
+            height="1600"
+            viewBox="0 0 1600 1600"
             role="img"
             aria-label="Logo cacta"
          >

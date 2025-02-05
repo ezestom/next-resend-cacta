@@ -4,7 +4,7 @@ import LogoAnimation from "./components/LogoAnimation";
 
 export default function Home() {
   return (
-    <div className="flex items-start bg-[#007d67]/25 justify-center min-h-screen font-[family-name:var(--font-geist-sans)] h-full p-4">
+    <div className="flex items-start bg-[#111826] justify-center min-h-screen font-[family-name:var(--font-poppins)] h-full p-4 text-white">
       <main className="flex flex-col  row-start-2 items-center">
 
         {/* <Image
@@ -20,7 +20,7 @@ export default function Home() {
 
         <ol className="list-inside list-decimal text-sm text-left">
           <li className="mb-1 text-pretty" >
-            ¡Regístrate para obtener 1 de los 200 descuentos!
+            ¡Regístrate para obtener tu descuento!
           </li>
           <li className="mb-1 text-pretty" >
             Ya registrado te reenviaremos un email con el código.
