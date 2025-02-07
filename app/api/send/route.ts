@@ -10,7 +10,7 @@ export async function POST(req: Request) {
 		const { firstname, email } = await req.json();
 
 		const { data, error } = await resend.emails.send({
-			from: "Acme <onboarding@resend.dev>",
+			from: "Juan Pablo from Cacta <jp.tena@cacta.eco>",
 			to: [email], // Se envía el correo al usuario
 			subject: "Gracias por tu registro!",
 			react: EmailTemplate({
