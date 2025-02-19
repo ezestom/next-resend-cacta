@@ -1,6 +1,7 @@
 'use client'
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import Swal from "sweetalert2";
 
 
 export const Form = () => {
@@ -23,45 +24,40 @@ export const Form = () => {
    const router = useRouter();
 
 
-   const checkUserExists = async (email: string) => {
-      try {
-         const response = await fetch(`/api/getUserId?email=${email}`);
-         const data = await response.json();
+   // const checkUserExists = async (email: string) => {
+   //    try {
+   //       const response = await fetch(`/api/getUserId?email=${email}`);
+   //       const data = await response.json();
 
-         if (response.ok) {
-            // Usuario ya registrado, redirigir directamente
-            const participantId = data.participantId;
-            setUserId(participantId);
-            alert(`Ya has enviado tu formulario 📝, te redirigimos a la página principal. Gracias ${firstname}!`);
-            window.location.href = "https://cacta.eco/";
-            return true;
-         }
-      } catch (error) {
-         console.error("Error verificando usuario:", error);
-      }
-      return false;
-   };
-
-
-   const handleRedirect = () => {
-      if (!userId) {
-         router.push(`/thanks`); // Redirige a la página de éxito
-
-      } else {
-         router.push(`https://cacta.eco/`); // Redirige a la página principal
-
-      }
-   };
+   //       if (response.ok) {
+   //          // Usuario ya registrado, redirigir directamente
+   //          const participantId = data.participantId;
+   //          setUserId(participantId);
+   //          alert(`Ya has enviado tu formulario 📝, te redirigimos a la página principal. Gracias ${firstname}!`);
+   //          window.location.href = "https://cacta.eco/";
+   //          return true;
+   //       }
+   //    } catch (error) {
+   //       console.error("Error verificando usuario:", error);
+   //    }
+   //    return false;
+   // };
 
 
+   // const handleRedirect = () => {
+   //    router.push(`/thanks`); 
+   // }
 
 
    const handleSubmit = async (e: React.FormEvent) => {
       e.preventDefault();
 
       // Verificar si el usuario ya está registrado
-      const userExists = await checkUserExists(email);
-      if (userExists) return; // Si ya existe, no enviamos el formulario
+      // const userExists = await checkUserExists(email);
+
+      const userExists = false; // Se asume que no existe
+      if (userExists) return;
+      // Si ya existe, no enviamos el formulario
 
       setLoading(true);
       const response = await fetch("/api/submitForm", {
@@ -89,7 +85,15 @@ export const Form = () => {
          const data = await response.json();
          const participantId = data.participantId;
          setUserId(participantId);
-         alert(`Gracias por rellenar el formulario ${firstname}, te hemos enviado un email con tu código de descuento 📧`);
+         Swal.fire({
+            title: `¡Gracias por rellenar el formulario, ${firstname}!`,
+            text: "Te hemos enviado un email con tu código de descuento 📧",
+            icon: "success",
+            confirmButtonText: "Aceptar",
+            confirmButtonColor: "#2563eb",
+         }).then(() => {
+            router.push(`/thanks`); // Redirige cuando el usuario haga clic en "Aceptar"
+         });
 
          // Llamada a la API de Resend para enviar el email
          await fetch('/api/send', {  // Aquí llamamos a tu API de Resend
@@ -103,7 +107,7 @@ export const Form = () => {
             }),
          });
 
-         handleRedirect();
+         // handleRedirect();
 
       } else {
          console.error("Error al enviar el formulario");

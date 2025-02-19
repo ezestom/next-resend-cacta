@@ -9,7 +9,7 @@ export const EmailTemplate = ({ firstName }: EmailTemplateProps) => (
       <h2 style={{ color: "#fff", fontSize: "24px", fontWeight: "bold", maxWidth: "600px", margin: "0 auto" }}>¡Gracias por tu registro, {firstName}!</h2>
 
       <div>
-         <p style={{ fontSize: "16px", marginBottom: "10px" }}>🔒 Tu código</p>
+         <p style={{ fontSize: "16px", marginBottom: "10px" }}>🔐 Tu código</p>
 
          <h1 style={{ fontSize: "32px", fontWeight: "bold", color: "#fff", backgroundColor: "#374151", padding: "10px", borderRadius: "8px", margin: "10px 0" }}>CACTA-EA-001-20</h1>
       </div>
