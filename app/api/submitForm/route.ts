@@ -35,8 +35,8 @@ const insertFormData = async (
 			message,
 		]
 	);
-
-	return result.rows[0]?.id; // Devuelve el ID generado
+	// Devuelve el ID generado
+	return result.rows[0]?.id;
 };
 
 export async function POST(request: Request) {

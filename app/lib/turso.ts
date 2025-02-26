@@ -9,8 +9,7 @@ import { createClient } from "@libsql/client";
 
 const client = createClient({
 	url:
-		process.env.TURSO_DATABASE_URL ||
-		"libsql://discount-ddbb-ezestom.turso.io",
+		process.env.TURSO_DATABASE_URL || "libsql://discount-ddbb-ezestom.turso.io",
 	authToken: process.env.AUTH_TOKEN, // Token de autenticación de Turso
 });
 
