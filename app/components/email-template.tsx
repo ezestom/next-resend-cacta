@@ -6,6 +6,7 @@ interface EmailTemplateProps {
 
 export const EmailTemplate = ({ firstName }: EmailTemplateProps) => (
    <div style={{ fontFamily: "'Poppins', sans-serif", padding: "50px", backgroundColor: "#111826", borderRadius: "8px", color: "#fff", maxWidth: "600px", margin: "0 auto" }}>
+      <img src="https://cacta.eco/_astro/logo.BQZNQwko.png" alt="Cacta" style={{ width: "75px", margin: "0 auto", display: "block", paddingBottom: "25px" }} />
       <h2 style={{ color: "#fff", fontSize: "24px", fontWeight: "bold", maxWidth: "600px", margin: "0 auto" }}>¡Gracias por tu registro, {firstName}!</h2>
 
       <div>
